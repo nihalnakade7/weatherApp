@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+
+        <form method="POST" action="{% url 'login' %}">
+
+            {% csrf_token %}
+            <label>Username</label>
+            <input type="text" name="uname"><br><br>
+            <label>Password</label>
+            <input type="password" name="passwd"><br><br>
+            <input type="submit" value="Login">
+
+        </form>
+        <p><a href="{% url 'register' %}">Not Yet Registered</a></p>
+
+        <div>
+            {% for message in messages%}
+            <h3>{{message}}</h3>
+            {% endfor%}
+        </div>
+
+    </body>
+</html>
